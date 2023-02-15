@@ -1,4 +1,6 @@
-import Navebar01 from "../../../navebars/navebar01"
+import Navebar01 from "../../components/navebars/navbar01"
+
+
 
 const people = [
     {

@@ -27,7 +27,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
 
-export default function Navebar02 (){
+export default function Navbar02 (){
     return(
     <Disclosure as="nav" className="bg-black ">
     {({ open }) => (

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import logoImg from '../../assets/logo.svg';
+
 
 const navigation = [
   { name: "Inicio", href: "/" },
@@ -9,17 +11,18 @@ const navigation = [
   { name: "Contato", href: "#" },
 ];
 
-export default function Navebar01() {
+export default function Navbar01() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="px-6 pt-6 lg:px-8">
+    <div className="px-9 pt-6 lg:px-8">
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+            <span className="sr-only">Semear EAD</span>
             <img
-              className="h-8"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              href="/"
+              className="h-14 flex-start p-1.5"
+              src={logoImg.src}
               alt=""
             />
           </a>

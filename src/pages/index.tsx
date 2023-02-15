@@ -1,8 +1,4 @@
-/* This example requires Tailwind CSS v3.0+ */
-
-import Navebar01 from "../../navebars/navebar01"
-import { Footer } from "./Footer"
-
+import Navebar01 from "../components/navebars/navbar01";
 
 export default function Home() {
   
