@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer"
 import Navbar01 from "../../components/navebars/navbar01"
 
 
@@ -89,6 +90,7 @@ const products = [
           </div>
         </div>
       </div>
+      <Footer/>
     </>
     )
   }
