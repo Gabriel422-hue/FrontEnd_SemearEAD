@@ -17,14 +17,9 @@ export default function Navbar01() {
     <div className="px-9 pt-6 lg:px-8">
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Semear EAD</span>
-            <img
-              href="/"
-              className="h-14 flex-start p-1.5"
-              src={logoImg.src}
-              alt=""
-            />
+            <img className="h-14 flex-start" src={logoImg.src} alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -61,7 +56,7 @@ export default function Navbar01() {
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src={logoImg.src}
                 alt=""
               />
             </a>
