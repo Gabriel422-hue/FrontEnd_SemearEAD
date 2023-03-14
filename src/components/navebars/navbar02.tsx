@@ -1,12 +1,13 @@
 import { Fragment } from 'react'
+import logoImg from '../../assets/logo.svg';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const user = {
-    name: 'Tom Cook',
-    email: 'tom@example.com',
+    name: 'Gabriel Victor',
+    email: 'gabrielvictor@hotmail.com',
     imageUrl:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      'https://avatars.githubusercontent.com/u/69878839?v=4',
 }
 
 const navigation = [
@@ -17,9 +18,9 @@ const navigation = [
 ]
 
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Seu Perfil', href: '#' },
+    { name: 'Configurações', href: '#' },
+    { name: 'Sair', href: '#' },
 ]
 
 
@@ -29,7 +30,7 @@ function classNames(...classes) {
 
 export default function Navbar02 (){
     return(
-    <Disclosure as="nav" className="bg-black ">
+    <Disclosure as="nav" className="bg-gray-700 ">
     {({ open }) => (
       <>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -37,8 +38,8 @@ export default function Navbar02 (){
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <img
-                  className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  className="h-14 flex-start p-1.5"
+                  src={logoImg.src}
                   alt="Your Company"
                 />
               </div>
@@ -51,7 +52,7 @@ export default function Navbar02 (){
                       href={item.href}
                       className={classNames(
                         item.current
-                          ? 'bg-gray-900 text-white'
+                          ? 'bg-gray-700 text-white'
                           : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         'px-3 py-2 rounded-md text-sm font-medium'
                       )}
@@ -67,7 +68,7 @@ export default function Navbar02 (){
               <div className="ml-4 flex items-center md:ml-6">
                 <button
                   type="button"
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="rounded-full bg-gray-700 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -76,7 +77,7 @@ export default function Navbar02 (){
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
                     </Menu.Button>
@@ -113,7 +114,7 @@ export default function Navbar02 (){
             </div>
             <div className="-mr-2 flex md:hidden">
               {/* Mobile menu button */}
-              <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+              <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-700 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                 <span className="sr-only">Open main menu</span>
                 {open ? (
                   <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -133,7 +134,7 @@ export default function Navbar02 (){
                 as="a"
                 href={item.href}
                 className={classNames(
-                  item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  item.current ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                   'block px-3 py-2 rounded-md text-base font-medium'
                 )}
                 aria-current={item.current ? 'page' : undefined}
@@ -153,7 +154,7 @@ export default function Navbar02 (){
               </div>
               <button
                 type="button"
-                className="ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="ml-auto flex-shrink-0 rounded-full bg-gray-700 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               >
                 <span className="sr-only">View notifications</span>
                 <BellIcon className="h-6 w-6" aria-hidden="true" />

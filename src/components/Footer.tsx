@@ -73,13 +73,13 @@ export default function Footer() {
           <div className="flex space-x-6 items-center h-10">
             <a
               aria-label="Facebook"
-              href="https://github.com/vercel/nextjs-subscription-payments"
+              href="https://l.instagram.com/?u=https%3A%2F%2Fm.facebook.com%2Fpages%2Fcategory%2FReligious-organization%2FIgreja-Casa-da-B%C3%AAn%C3%A7%C3%A3o-Grande-Nordeste-101132181962057%2F&e=AT3oIkw7OrpmU0Tjk7zbF-RgD7FpRXEacjbGHNXEpgkT4MGptCHYCEIlvT1faMPItus7_zxIlwVg6n7Bz4WB0D0lnzT08KOr3eETqQ"
             >
               <FiFacebook />
             </a>
             <a
-              aria-label="Facebook"
-              href="https://github.com/vercel/nextjs-subscription-payments"
+              aria-label="Instagram"
+              href="https://www.instagram.com/icbgrandenordeste/"
             >
               <FiInstagram />
             </a>

@@ -8,7 +8,7 @@ const navigation = [
   { name: "Inicio", href: "/" },
   { name: "Sobre", href: "about" },
   { name: "Cursos", href: "courses" },
-  { name: "Contato", href: "#" },
+  { name: "Contato", href: "contato" },
 ];
 
 export default function Navbar01() {
@@ -44,8 +44,8 @@ export default function Navbar01() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="sigin" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
+          <a href="signin" className="text-sm font-semibold leading-6 text-gray-900">
+            Login <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
