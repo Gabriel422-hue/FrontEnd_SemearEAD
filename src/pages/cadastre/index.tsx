@@ -1,13 +1,46 @@
 import { Switch } from "@headlessui/react";
-import { useState } from "react";
+import {useState} from "react";
 import Footer from "../../components/Footer";
 import Navbar01 from "../../components/navebars/navbar01";
+import { useForm } from 'react-hook-form'
+import axios from 'axios';
+import { useRouter } from 'next/router';
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Cadastre() {
+  const { register, handleSubmit } = useForm();
+  const router = useRouter();
+  
+  function handleCadastre(data){
+    const userData = {
+      name: data.name,
+      lastname: data.lastname,
+      email: data.email,
+      password: data.password,
+      cpf: data.cpf,
+      address: data.address,
+      city: data.city,
+      state: data.state,
+      cep: data.cep,
+      church: data.church,
+    };
+  
+    axios.post('http://localhost:8080/users', userData)
+    .then(response => {
+      if (response.status === 201) {
+        router.push('/success');
+      } else {
+        console.log(response.data);
+      }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   const [agreed, setAgreed] = useState(false);
   return (
     <>
@@ -31,7 +64,7 @@ export default function Example() {
             </div>
           </div>
           <div className="mt-5 md:col-span-2 md:mt-0">
-            <form action="#" method="POST">
+            <form onSubmit={handleSubmit(handleCadastre)}>
               <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
@@ -43,9 +76,10 @@ export default function Example() {
                         Nome
                       </label>
                       <input
+                       {...register('name')}
                         type="text"
-                        name="first-name"
-                        id="first-name"
+                        name="name"
+                        id="name"
                         autoComplete="given-name"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
@@ -59,9 +93,10 @@ export default function Example() {
                         Sobrenome
                       </label>
                       <input
+                       {...register('lastname')}
                         type="text"
-                        name="last-name"
-                        id="last-name"
+                        name="lastname"
+                        id="lastname"
                         autoComplete="family-name"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
@@ -75,9 +110,10 @@ export default function Example() {
                         E-mail
                       </label>
                       <input
+                       {...register('email')}
                         type="text"
-                        name="email-address"
-                        id="email-address"
+                        name="email"
+                        id="email"
                         autoComplete="email"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
@@ -91,6 +127,7 @@ export default function Example() {
                         Senha
                       </label>
                       <input
+                       {...register('password')}
                         type="password"
                         name="password"
                         id="password"
@@ -107,6 +144,7 @@ export default function Example() {
                         CPF
                       </label>
                       <input
+                       {...register('cpf')}
                         placeholder="xxx.xxx.xxx-xx"
                         max={11}
                         type="text"
@@ -125,10 +163,11 @@ export default function Example() {
                         Endereço
                       </label>
                       <input
+                       {...register('address')}
                         type="text"
-                        name="street-address"
-                        id="street-address"
-                        autoComplete="street-address"
+                        name="address"
+                        id="address"
+                        autoComplete="address"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
                     </div>
@@ -141,6 +180,7 @@ export default function Example() {
                         Cidade
                       </label>
                       <input
+                       {...register('city')}
                         type="text"
                         name="city"
                         id="city"
@@ -157,9 +197,10 @@ export default function Example() {
                         Estado
                       </label>
                       <input
+                       {...register('state')}
                         type="text"
-                        name="region"
-                        id="region"
+                        name="state"
+                        id="state"
                         autoComplete="address-level1"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
@@ -173,9 +214,10 @@ export default function Example() {
                         CEP
                       </label>
                       <input
+                       {...register('cep')}
                         type="text"
-                        name="postal-code"
-                        id="postal-code"
+                        name="cep"
+                        id="cep"
                         autoComplete="postal-code"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
@@ -188,6 +230,7 @@ export default function Example() {
                         Igreja
                       </label>
                       <select
+                       {...register('church')}
                         id="church"
                         name="church"
                         autoComplete="church-name"
