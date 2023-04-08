@@ -20,7 +20,7 @@ const navigation = [
 const userNavigation = [
     { name: 'Seu Perfil', href: '#' },
     { name: 'Configurações', href: '#' },
-    { name: 'Sair', href: '/signin' },
+    { name: 'Sair', href: '/login' },
 ]
 
 
@@ -29,6 +29,11 @@ function classNames(...classes) {
   }
 
 export default function Navbar02 (){
+  const handleLogout = () => {
+    localStorage.clear();
+
+    window.location.href = '/login';
+  };
     return(
     <Disclosure as="nav" className="bg-gray-700 ">
     {({ open }) => (
@@ -56,7 +61,6 @@ export default function Navbar02 (){
                           : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                         'px-3 py-2 rounded-md text-sm font-medium'
                       )}
-                      aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}
                     </a>
@@ -92,22 +96,23 @@ export default function Navbar02 (){
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {userNavigation.map((item) => (
-                        <Menu.Item key={item.name}>
-                          {({ active }) => (
-                            <a
-                              href={item.href}
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
-                              )}
-                            >
-                              {item.name}
-                            </a>
-                          )}
-                        </Menu.Item>
-                      ))}
-                    </Menu.Items>
+      {userNavigation.map((item) => (
+        <Menu.Item key={item.name}>
+          {({ active }) => (
+            <a
+              href={item.href}
+              className={classNames(
+                active ? 'bg-gray-100' : '',
+                'block px-4 py-2 text-sm text-gray-700'
+              )}
+              onClick={handleLogout} // Adicionar o event handler ao botão "Sair"
+            >
+              {item.name}
+            </a>
+          )}
+        </Menu.Item>
+      ))}
+    </Menu.Items>
                   </Transition>
                 </Menu>
               </div>

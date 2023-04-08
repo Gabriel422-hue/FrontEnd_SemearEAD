@@ -39,7 +39,7 @@ export default function Home() {
               >
                 Quero ser aluno
               </a>
-              <a href="/signin" className="text-sm font-semibold leading-6 text-white">
+              <a href="/login" className="text-sm font-semibold leading-6 text-white">
                 Já sou aluno <span aria-hidden="true">→</span>
               </a>
             </div>
