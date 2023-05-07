@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function WatchCard({ videoTitle, videoThumbnailUrl }) {
+export default function WatchCard({ videoTitle, videoThumbnailUrl, videoLink }) {
   return (
     <div className="max-w-xs rounded overflow-hidden shadow-lg">
-      <img className="w-full" src={videoThumbnailUrl} alt={videoTitle} />
+       <a href={videoLink} target="_blank" rel="noopener noreferrer">
+        <img className="w-full" src={videoThumbnailUrl} alt={videoTitle} />
+      </a>
       <div className="px-10 py-4">
         <div className="font-bold text-xl mb-2">{videoTitle}</div>
         <p className="text-gray-700 text-base">
