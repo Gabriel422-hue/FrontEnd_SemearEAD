@@ -1,5 +1,5 @@
 {
-  "name": "SemearEAD",
+  "name": "semearead",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,6 @@
     "@heroicons/react": "^2.0.14",
     "@next/font": "13.1.6",
     "@phosphor-icons/react": "^2.0.5",
-    "@prisma/client": "^4.9.0",
     "autoprefixer": "^10.4.13",
     "axios": "^1.3.4",
     "client": "^0.0.1",

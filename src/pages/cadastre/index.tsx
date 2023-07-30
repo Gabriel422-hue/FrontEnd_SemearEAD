@@ -28,7 +28,6 @@ export default function Cadastre() {
       cep: data.cep,
       church: data.church,
     };
-  
     axios.post('http://localhost:8080/users', userData)
     .then(response => {
       if (response.status === 201) {
@@ -42,6 +41,43 @@ export default function Cadastre() {
       });
   }
   const [agreed, setAgreed] = useState(false);
+
+  function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, ''); 
+  
+    if (cpf.length !== 11) {
+      return false;
+    }
+  
+  
+    if (/^(\d)\1+$/.test(cpf)) {
+      return false;
+    }
+  
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+      sum += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let remainder = sum % 11;
+    let digit1 = remainder < 2 ? 0 : 11 - remainder;
+    if (parseInt(cpf.charAt(9)) !== digit1) {
+      return false;
+    }
+  
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+      sum += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    remainder = sum % 11;
+    let digit2 = remainder < 2 ? 0 : 11 - remainder;
+    if (parseInt(cpf.charAt(10)) !== digit2) {
+      return false;
+    }
+  
+    return true;
+  }
+  
+
   return (
     <>
       <Navbar01 />
@@ -121,6 +157,33 @@ export default function Cadastre() {
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
+                        htmlFor="cpf"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        CPF
+                      </label>
+                      <input
+                      {...register('cpf')}
+                      onBlur={(e) => {
+                        if (e.target.value) {
+                          const isValidCPF = validarCPF(e.target.value);
+                          if (!isValidCPF) {
+                            alert('CPF inválido. Por favor, verifique o número informado.');
+                          }
+                        }
+                      }}
+                      placeholder="xxx.xxx.xxx-xx"
+                      type="text"
+                      name="cpf"
+                      id="cpf"
+                      autoComplete="cpf"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
+                    />
+
+                    </div>
+
+                    <div className="col-span-3 sm:col-span-2">
+                      <label
                         htmlFor="password"
                         className="block text-sm font-medium text-gray-700"
                       >
@@ -136,21 +199,19 @@ export default function Cadastre() {
                       />
                     </div>
 
-                    <div className="col-span-4 sm:col-span-2">
+                    <div className="col-span-3 sm:col-span-2">
                       <label
-                        htmlFor="cpf"
+                        htmlFor="password"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        CPF
+                        Confirme a Senha
                       </label>
                       <input
-                       {...register('cpf')}
-                        placeholder="xxx.xxx.xxx-xx"
-                        max={11}
-                        type="text"
-                        name="cpf"
-                        id="cpf"
-                        autoComplete="cpf"
+                       {...register('password')}
+                        type="password"
+                        name="password"
+                        id="password"
+                        autoComplete="password"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-600 sm:text-sm"
                       />
                     </div>
@@ -274,7 +335,7 @@ export default function Cadastre() {
                     </Switch.Group>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                <div className="bg-gray-30 px-4 py-3 text-right sm:px-6">
                   <button
                     type="submit"
                     className="inline-flex justify-center rounded-md border border-transparent bg-red-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"

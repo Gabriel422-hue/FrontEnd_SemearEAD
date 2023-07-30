@@ -33,7 +33,7 @@ export default function LoginPage() {
   return (
     <>
     <Navbar01/>
-      <div className="flex h-screen  bg-gray-50 items-start justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex h-screen  bg-white items-start justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
             <img
